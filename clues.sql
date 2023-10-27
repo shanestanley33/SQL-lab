@@ -3,6 +3,7 @@
 -- so find the least populated country in Southern Europe, and we'll start looking for her there.
  
 -- Write SQL query here
+SELECT * FROM country WHERE region='Southern Europe' ORDER BY population ASC;
 
 
 -- Clue #2: Now that we're here, we have insight that Carmen was seen attending language classes in
@@ -10,6 +11,7 @@
 -- spoken in this country, so we can call in a translator to work with you.
 
 -- Write SQL query here
+SELECT * FROM countrylanguage WHERE countrycode='VAT';
 
 
 -- Clue #3: We have new news on the classes Carmen attended – our gumshoes tell us she's moved on
@@ -17,7 +19,8 @@
 -- nearby country speaks nothing but that language.
 
 -- Write SQL query here
-
+SELECT * FROM countrylanguage WHERE language='Italian' ORDER BY percentage DESC;
+SELECT name,code FROM country WHERE code='SMR';
 
 -- Clue #4: We're booking the first flight out – maybe we've actually got a chance to catch her this time.
 -- There are only two cities she could be flying to in the country. One is named the same as the country – that
@@ -25,6 +28,7 @@
 -- be flying to.
 
 -- Write SQL query here
+SELECT * FROM city WHERE countrycode='SMR';
 
 
 -- Clue #5: Oh no, she pulled a switch – there are two cities with very similar names, but in totally different
@@ -32,6 +36,8 @@
 -- headed to, but doesn't end the same. Find out the city, and do another search for what country it's in. Hurry!
 
 -- Write SQL query here
+SELECT * FROM city WHERE name LIKE 'Serra%';
+SELECT * FROM country WHERE code='BRA';
 
 
 -- Clue #6: We're close! Our South American agent says she just got a taxi at the airport, and is headed towards
@@ -39,6 +45,7 @@
 -- follow right behind you!
 
 -- Write SQL query here
+SELECT * FROM city WHERE id='211';
 
 
 -- Clue #7: She knows we're on to her – her taxi dropped her off at the international airport, and she beat us to
@@ -57,3 +64,4 @@
 
 -- We're counting on you, gumshoe. Find out where she's headed, send us the info, and we'll be sure to meet her at the gates with bells on.
 
+SELECT * FROM city WHERE population=91084;
